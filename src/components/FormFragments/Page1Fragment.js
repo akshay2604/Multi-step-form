@@ -6,31 +6,34 @@ import {
 	View,
 	ScrollView,
 	Platform,
-	Dimensions,
 	KeyboardAvoidingView,
 	ActivityIndicator
 } from 'react-native';
 import { connect } from 'react-redux';
 import { isEmpty } from '../../utils/empty-utils';
+import Font from '../../themes/fonts';
 import { submitPartialForm } from '../../redux/actions/form';
 import TextInputWithInfo from '../TextInputWithInfo';
 import ProgressStatus from '../progressBar';
 import { verticalScale, scale } from '../../utils/scaling';
 import Colors from '../../themes/color';
 
-const { width, height } = Dimensions.get('window');
-
-class NameFragment extends React.Component {
+class Page1Fragment extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			name: props.name,
-			nameError: null,
-			enable: false,
-			selected: null,
-			data: []
+			name: null,
+			nameError: null
 		};
 		this.onSubmitPress = this.onSubmitPress.bind(this);
+	}
+	componentDidMount() {
+		this.didBlurSubscription = this.props.navigation.addListener('didBlur', () => {
+			this.setState({ name: null });
+		});
+	}
+	componentWillUnmount() {
+		this.didBlurSubscription.remove();
 	}
 	validateNameField(value) {
 		const regExp = /[0123456789!@#$%^&*()_+=\[\]{};':"\\|,.<>\/?]/;
@@ -98,9 +101,9 @@ const styles = StyleSheet.create({
 	},
 	questionText: {
 		marginTop: verticalScale(60),
-		fontSize: scale(20),
+		fontSize: scale(Font.fontSize.large),
 		alignSelf: 'center',
-		fontFamily: 'Montserrat-SemiBold',
+		fontFamily: Font.fontType.bold,
 		color: Colors.brandPrimary
 	},
 	textInputWithInfoView: {
@@ -122,8 +125,8 @@ const styles = StyleSheet.create({
 	submitButtonText: {
 		textAlign: 'center',
 		color: '#fff',
-		fontFamily: 'Montserrat-SemiBold',
-		fontSize: scale(14)
+		fontFamily: Font.fontType.bold,
+		fontSize: scale(Font.fontSize.med)
 	}
 });
 
@@ -135,8 +138,7 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => {
 	return {
 		loading: state.user.loading,
-		progress: state.form.progress,
-		name: state.user.name
+		progress: state.form.progress
 	};
 };
-export default connect(mapStateToProps, mapDispatchToProps)(NameFragment);
+export default connect(mapStateToProps, mapDispatchToProps)(Page1Fragment);

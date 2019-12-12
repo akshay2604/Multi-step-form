@@ -5,6 +5,7 @@ import Page2Fragment from '../components/FormFragments/Page2Fragment';
 import Page3Fragment from '../components/FormFragments/Page3Fragment';
 import Page4Fragment from '../components/FormFragments/Page4Fragment';
 import LandingPage from '../screens/landingPage';
+import Font from '../themes/fonts';
 import { scale } from '../utils/scaling';
 
 const AppNavigator = createStackNavigator(
@@ -36,8 +37,8 @@ const AppNavigator = createStackNavigator(
 			headerTitleStyle: {
 				justifyContent: 'center',
 				alignItems: 'center',
-				fontFamily: 'Montserrat-SemiBold',
-				fontSize: scale(14),
+				fontFamily: Font.fontType.bold,
+				fontSize: scale(Font.fontSize.med),
 				color: '#fff',
 				paddingHorizontal: scale(20)
 			}

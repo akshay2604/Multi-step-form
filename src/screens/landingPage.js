@@ -3,13 +3,14 @@ import { TouchableOpacity, StyleSheet, View, Text } from 'react-native';
 import { connect } from 'react-redux';
 import { progressUpdate, resetUserState } from '../redux/actions/form';
 import Colors from '../themes/color';
+import Font from '../themes/fonts';
 import { scale } from '../utils/scaling';
 
 class LandingPage extends React.Component {
 	restartSignup() {
 		this.props.progressUpdate('Page1');
 		this.props.resetUserState();
-		this.props.navigation.popToTop();
+		this.props.navigation.pop(6);
 	}
 	render() {
 		return (
@@ -39,8 +40,8 @@ const styles = StyleSheet.create({
 	submitButtonText: {
 		textAlign: 'center',
 		color: '#fff',
-		fontFamily: 'Montserrat-SemiBold',
-		fontSize: scale(14)
+		fontFamily: Font.fontType.bold,
+		fontSize: scale(Font.fontSize.med)
 	}
 });
 

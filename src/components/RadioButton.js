@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { TouchableOpacity, Text, View, StyleSheet } from 'react-native';
 import { scale } from '../utils/scaling';
 import Colors from '../themes/color';
+import Font from '../themes/fonts';
 
 class RadioButtonGroup extends Component {
 	render() {
@@ -42,8 +43,8 @@ const styles = StyleSheet.create({
 		paddingHorizontal: 10
 	},
 	labelText: {
-		fontFamily: 'Montserrat-Medium',
-		fontSize: scale(12)
+		fontFamily: Font.fontType.med,
+		fontSize: scale(Font.fontSize.sm1)
 	}
 });
 export default RadioButtonGroup;

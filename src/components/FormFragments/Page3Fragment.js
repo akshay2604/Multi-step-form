@@ -11,6 +11,7 @@ import {
 } from 'react-native';
 import { connect } from 'react-redux';
 import { isEmpty } from '../../utils/empty-utils';
+import Font from '../../themes/fonts';
 import { submitPartialForm } from '../../redux/actions/form';
 import TextInputWithInfo from '../TextInputWithInfo';
 import ProgressStatus from '../progressBar';
@@ -135,8 +136,8 @@ const styles = StyleSheet.create({
 	},
 	questionText: {
 		marginTop: verticalScale(30),
-		fontSize: scale(14),
-		fontFamily: 'Montserrat-SemiBold',
+		fontSize: scale(Font.fontSize.med),
+		fontFamily: Font.fontType.bold,
 		color: Colors.brandPrimary
 	},
 	textInputWithInfoView: {
@@ -162,8 +163,8 @@ const styles = StyleSheet.create({
 	submitButtonText: {
 		textAlign: 'center',
 		color: '#fff',
-		fontFamily: 'Montserrat-SemiBold',
-		fontSize: scale(14)
+		fontFamily: Font.fontType.bold,
+		fontSize: scale(Font.fontSize.med)
 	}
 });
 
@@ -175,9 +176,6 @@ const mapDispatchToProps = (dispatch) => {
 const mapStateToProps = (state) => {
 	return {
 		loading: state.user.loading,
-		height: state.user.height,
-		weight: state.user.weight,
-		tobaccoUsed: state.user.tobaccoUsed,
 		progress: state.form.progress
 	};
 };

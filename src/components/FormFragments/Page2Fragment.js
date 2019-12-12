@@ -13,6 +13,7 @@ import { isEmpty } from '../../utils/empty-utils';
 import { submitPartialForm } from '../../redux/actions/form';
 import TextInputWithInfo from '../TextInputWithInfo';
 import ProgressStatus from '../progressBar';
+import Font from '../../themes/fonts';
 import { verticalScale, scale } from '../../utils/scaling';
 import Colors from '../../themes/color';
 import CheckboxOption from '../CheckBoxOption';
@@ -22,7 +23,7 @@ class Page2Fragment extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			age: props.age,
+			age: null,
 			ageError: null,
 			checkBoxOptionSelected: null
 		};
@@ -112,9 +113,9 @@ const styles = StyleSheet.create({
 	},
 	questionText: {
 		marginTop: verticalScale(60),
-		fontSize: scale(20),
+		fontSize: scale(Font.fontSize.large),
 		alignSelf: 'center',
-		fontFamily: 'Montserrat-SemiBold',
+		fontFamily: Font.fontType.bold,
 		color: Colors.brandPrimary
 	},
 	textInputWithInfoView: {
@@ -139,8 +140,8 @@ const styles = StyleSheet.create({
 	submitButtonText: {
 		textAlign: 'center',
 		color: '#fff',
-		fontFamily: 'Montserrat-SemiBold',
-		fontSize: scale(14)
+		fontFamily: Font.fontType.bold,
+		fontSize: scale(Font.fontSize.med)
 	}
 });
 

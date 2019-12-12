@@ -43,8 +43,8 @@ const styles = StyleSheet.create({
 	},
 	optionText: {
 		color: '#fff',
-		fontFamily: 'Montserrat-SemiBold',
-		fontSize: 12
+		fontFamily: Font.fontType.bold,
+		fontSize: scale(Font.fontSize.sm1)
 	}
 });
 export default CheckBoxOption;

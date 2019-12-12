@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { verticalScale } from '../utils/scaling';
 import PropTypes from 'prop-types';
+import Font from '../themes/fonts';
 import Colors from '../themes/color';
 
 function getActiveIndexCount(status) {
@@ -21,7 +22,7 @@ function getActiveIndexCount(status) {
 	}
 }
 class ProgressStatus extends Component {
-	_renderLeftLine(index, activeIndexCount) {
+	renderLeftLine(index, activeIndexCount) {
 		if (index !== 0) {
 			if (index <= activeIndexCount) {
 				return <View style={styles.activeLine} />;
@@ -30,13 +31,13 @@ class ProgressStatus extends Component {
 		}
 		return <View style={styles.invisibleLine} />;
 	}
-	_renderMiddleCircle(index, activeIndexCount) {
+	renderMiddleCircle(index, activeIndexCount) {
 		if (index <= activeIndexCount) {
 			return <View style={styles.activeCircle} />;
 		}
 		return <View style={styles.inactiveCircle} />;
 	}
-	_renderRightLine(index, activeIndexCount, values) {
+	renderRightLine(index, activeIndexCount, values) {
 		if (values.length - 1 !== index) {
 			if (index < activeIndexCount) {
 				return <View style={styles.activeLine} />;
@@ -45,7 +46,7 @@ class ProgressStatus extends Component {
 		}
 		return <View style={styles.invisibleLine} />;
 	}
-	_renderText(status, index, activeIndexCount) {
+	renderText(status, index, activeIndexCount) {
 		const styleObj = index <= activeIndexCount ? styles.activeText : styles.inactiveText;
 		return (
 			<View>
@@ -64,11 +65,11 @@ class ProgressStatus extends Component {
 				{values.map((value, index) => (
 					<View style={styles.progressBarItemContainer} key={status.concat(index)}>
 						<View style={styles.eachItemContainer}>
-							{this._renderLeftLine(index, activeIndexCount)}
-							{this._renderMiddleCircle(index, activeIndexCount)}
-							{this._renderRightLine(index, activeIndexCount, values)}
+							{this.renderLeftLine(index, activeIndexCount)}
+							{this.renderMiddleCircle(index, activeIndexCount)}
+							{this.renderRightLine(index, activeIndexCount, values)}
 						</View>
-						<View style={styles.textContainer}>{this._renderText(value, index, activeIndexCount)}</View>
+						<View style={styles.textContainer}>{this.renderText(value, index, activeIndexCount)}</View>
 					</View>
 				))}
 			</View>
@@ -95,7 +96,7 @@ const styles = StyleSheet.create({
 		borderWidth: 1,
 		alignSelf: 'center',
 		flex: 1,
-		height: 0,
+		// height: 0,
 		backgroundColor: Colors.brandPrimary
 	},
 	inactiveLine: {
@@ -103,7 +104,7 @@ const styles = StyleSheet.create({
 		borderWidth: 1,
 		alignSelf: 'center',
 		flex: 1,
-		height: 0,
+		// height: 0,
 		backgroundColor: 'gray'
 	},
 	invisibleLine: {
@@ -119,7 +120,7 @@ const styles = StyleSheet.create({
 		width: 10,
 		borderRadius: 5,
 		backgroundColor: Colors.brandPrimary,
-		margin: 5
+		margin: 4
 	},
 	inactiveCircle: {
 		borderColor: 'gray',
@@ -137,13 +138,13 @@ const styles = StyleSheet.create({
 	},
 	activeText: {
 		color: 'gray',
-		fontFamily: 'Montserrat-SemiBold',
-		fontSize: 12
+		fontFamily: Font.fontType.base,
+		fontSize: Font.fontSize.sm1
 	},
 	inactiveText: {
 		color: 'gray',
-		fontFamily: 'Montserrat-Regular',
-		fontSize: 12
+		fontFamily: Font.fontType.base,
+		fontSize: Font.fontSize.sm1
 	}
 });
 ProgressStatus.propTypes = {

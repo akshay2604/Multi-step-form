@@ -1,6 +1,7 @@
 import React from 'react';
 import { StyleSheet, Text, TextInput, View } from 'react-native';
 import { verticalScale, scale } from '../utils/scaling';
+import Font from '../themes/fonts';
 import Colors from '../themes/color';
 
 export default class TextInputWithInfo extends React.Component {
@@ -45,7 +46,7 @@ const styles = StyleSheet.create({
 	},
 	input: {
 		fontSize: verticalScale(18),
-		fontFamily: 'Montserrat-Medium'
+		fontFamily: Font.fontType.med
 	},
 	inputUnderline: {
 		marginVertical: verticalScale(10),
@@ -61,8 +62,8 @@ const styles = StyleSheet.create({
 		color: '#980004'
 	},
 	whyAskingText: {
-		fontSize: scale(12),
-		fontFamily: 'Montserrat-Regular',
+		fontSize: scale(Font.fontSize.sm1),
+		fontFamily: Font.fontType.base,
 		opacity: 0.87,
 		color: Colors.brandPrimary
 	}

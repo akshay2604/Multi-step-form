@@ -12,6 +12,7 @@ import { connect } from 'react-redux';
 import { isEmpty } from '../../utils/empty-utils';
 import { submitPartialForm } from '../../redux/actions/form';
 import ProgressStatus from '../progressBar';
+import Font from '../../themes/fonts';
 import { verticalScale, scale } from '../../utils/scaling';
 import CheckboxOption from '../CheckBoxOption';
 import RadioButtonGroup from '../RadioButton';
@@ -40,11 +41,11 @@ class Page4Fragment extends React.Component {
 		});
 	}
 	render() {
-		const { loading } = this.props;
+		const { loading, progress } = this.props;
 		return (
 			<KeyboardAvoidingView behavior={Platform.OS === 'ios' ? 'padding' : null} enabled style={styles.container}>
 				<View style={{ paddingTop: 25 }}>
-					<ProgressStatus values={[ 'Page1', 'Page2', 'Page3', 'Page4' ]} status={this.props.progress} />
+					<ProgressStatus values={[ 'Page1', 'Page2', 'Page3', 'Page4' ]} status={progress} />
 				</View>
 				<View style={styles.inner}>
 					<View>
@@ -101,8 +102,8 @@ const styles = StyleSheet.create({
 	},
 	questionText: {
 		marginTop: verticalScale(30),
-		fontSize: scale(14),
-		fontFamily: 'Montserrat-SemiBold',
+		fontSize: scale(Font.fontSize.med),
+		fontFamily: Font.fontType.bold,
 		color: Colors.brandPrimary
 	},
 	textInputWithInfoView: {
@@ -128,8 +129,8 @@ const styles = StyleSheet.create({
 	submitButtonText: {
 		textAlign: 'center',
 		color: '#fff',
-		fontFamily: 'Montserrat-SemiBold',
-		fontSize: scale(14)
+		fontFamily: Font.fontType.bold,
+		fontSize: scale(Font.fontSize.med)
 	}
 });
 
