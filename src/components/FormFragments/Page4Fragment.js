@@ -48,7 +48,7 @@ class Page4Fragment extends React.Component {
 				</View>
 				<View style={styles.inner}>
 					<View>
-						<Text style={[ styles.questionText, { alignSelf: 'center' } ]} testID={'yourAgeQuestion'}>
+						<Text style={[ styles.questionText, { alignSelf: 'center' } ]}>
 							Which best describes your risk appetite
 						</Text>
 						<RadioButtonGroup
@@ -58,9 +58,7 @@ class Page4Fragment extends React.Component {
 						/>
 					</View>
 					<View style={styles.CheckboxOptionView}>
-						<Text style={[ styles.questionText, { alignSelf: 'center' } ]} testID={'yourAgeQuestion'}>
-							Are you an Indian Citizen
-						</Text>
+						<Text style={[ styles.questionText, { alignSelf: 'center' } ]}>Are you an Indian Citizen</Text>
 						<CheckboxOption
 							option1={'Yes'}
 							option2={'No'}

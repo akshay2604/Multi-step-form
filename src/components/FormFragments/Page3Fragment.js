@@ -61,9 +61,7 @@ class Page3Fragment extends React.Component {
 				</View>
 				<ScrollView style={styles.inner} keyboardShouldPersistTaps="handled">
 					<View style={styles.rowContainer}>
-						<Text style={styles.questionText} testID={'yourAgeQuestion'}>
-							{'Height'}
-						</Text>
+						<Text style={styles.questionText}>{'Height'}</Text>
 						<View style={styles.textInputWithInfoView}>
 							<TextInputWithInfo
 								onChangeText={this.onHeightChange}
@@ -76,9 +74,7 @@ class Page3Fragment extends React.Component {
 								autoFocus={true}
 							/>
 						</View>
-						<Text style={styles.questionText} testID={'yourAgeQuestion'}>
-							{'Weight'}
-						</Text>
+						<Text style={styles.questionText}>{'Weight'}</Text>
 						<View style={styles.textInputWithInfoView}>
 							<TextInputWithInfo
 								onChangeText={this.onWeightChange}
@@ -92,9 +88,7 @@ class Page3Fragment extends React.Component {
 						</View>
 					</View>
 					<View style={styles.CheckboxOptionView}>
-						<Text style={[ styles.questionText, { alignSelf: 'center' } ]} testID={'yourAgeQuestion'}>
-							Are you a tobacco user
-						</Text>
+						<Text style={[ styles.questionText, { alignSelf: 'center' } ]}>Are you a tobacco user</Text>
 						<CheckboxOption
 							option1={'Yes'}
 							option2={'No'}

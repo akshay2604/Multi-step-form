@@ -17,16 +17,13 @@ export default class TextInputWithInfo extends React.Component {
 			<View style={styles.container}>
 				<TextInput
 					{...this.props}
-					testID={'textInputWithInfo'}
 					style={styles.input}
 					ref={this.textInput}
 					onChangeText={(value) => onChangeText(value)}
 				/>
 				<View style={styles.inputUnderline} />
 				<View style={styles.notificationView}>
-					<Text
-						testID={'whyAskingText'}
-						style={[ styles.whyAskingText, { color: errorVal != null ? '#d44c0e' : '#3F2E5C' } ]}>
+					<Text style={[ styles.whyAskingText, { color: errorVal != null ? '#d44c0e' : '#3F2E5C' } ]}>
 						{whyAskingText}
 					</Text>
 				</View>

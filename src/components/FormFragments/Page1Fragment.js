@@ -58,9 +58,7 @@ class NameFragment extends React.Component {
 					<ProgressStatus values={[ 'Page1', 'Page2', 'Page3', 'Page4' ]} status={progress} />
 				</View>
 				<ScrollView contentContainerStyle={styles.inner} keyboardShouldPersistTaps="handled">
-					<Text testID={'yourNameQuestion'} style={styles.questionText}>
-						{'What is your name'}
-					</Text>
+					<Text style={styles.questionText}>{'What is your name'}</Text>
 					<View style={styles.textInputWithInfoView}>
 						<TextInputWithInfo
 							onChangeText={this.onNameChange}

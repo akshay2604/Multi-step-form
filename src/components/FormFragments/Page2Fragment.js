@@ -58,9 +58,7 @@ class Page2Fragment extends React.Component {
 					<ProgressStatus values={[ 'Page1', 'Page2', 'Page3', 'Page4' ]} status={progress} />
 				</View>
 				<ScrollView style={styles.inner} keyboardShouldPersistTaps="handled">
-					<Text style={styles.questionText} testID={'yourAgeQuestion'}>
-						{'What is your age'}
-					</Text>
+					<Text style={styles.questionText}>{'What is your age'}</Text>
 					<View style={styles.textInputWithInfoView}>
 						<TextInputWithInfo
 							onChangeText={this.onAgeChange}
@@ -74,9 +72,7 @@ class Page2Fragment extends React.Component {
 						/>
 					</View>
 					<View style={styles.CheckboxOptionView}>
-						<Text style={styles.questionText} testID={'yourAgeQuestion'}>
-							Gender
-						</Text>
+						<Text style={styles.questionText}>Gender</Text>
 						<CheckboxOption
 							option1={'Male'}
 							option2={'Female'}
